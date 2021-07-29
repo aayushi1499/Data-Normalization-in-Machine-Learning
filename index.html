@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data Normalization in Machine Learning</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+</head>
+
+<body>
+    <style>
+   
+   
+   .comment {
+	display: block;
+	transition: all 1s;
+}
+.commentClicked {
+	min-height: 0px;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	padding: 5px 10px
+}
+.container textarea {
+	width: 100%;
+	border: none;
+	background: #E8E8E8;
+	padding: 5px 10px;
+	height: 50%;
+	border-radius: 5px 5px 0px 0px;
+	border-bottom: 2px solid #016BA8;
+	transition: all 0.5s;
+	margin-top: 15px;
+    margin-left: 30%;
+
+}
+button.primaryContained {
+	background: #016ba8;
+	color: #fff;
+	padding: 10px 10px;
+	border: none;
+	margin-top: 0px;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+	transition: 1s all;
+	font-size: 10px;
+	border-radius: 5px;
+    margin-right: 1%;
+}
+button.primaryContained:hover {
+	background: #9201A8;
+}
+}
+    </style>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+        <!-- Vue JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script>
+<!-- jQuery -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'>
+$(document).ready(function(){ 
+ 
+ $(".primaryContained").on('click', function(){
+ $(".comment").addClass("commentClicked");
+});//end click
+$("textarea").on('keyup.enter', function(){
+ $(".comment").addClass("commentClicked");
+});//end keyup
+});//End Function
+
+new Vue({
+ el: "#app",
+ data:{
+    title: 'Add a comment',
+   newItem: '',
+   item: [],
+ },
+ methods:{
+   addItem  (){
+   this.item.push(this.newItem);
+     this.newItem = "";
+   }
+}
+
+});</script>
+    <nav class="top-navbar navbar fixed-top navbar-expand navbar-light bg-white">
+        <div class="container justify-content-center">
+            <!-- <a class="logo icon-logo navbar-brand mx-md-auto mx-lg-auto mx-xl-auto" href="#">Aayushi's Blog</a> -->
+            <h1 class="font-weight-bold mt-4">Aayushi's Blog</h1>
+            <div class="navbar-btns navbar-nav mr-lg-3 mr-xl-5">
+                <!-- <a class="nav-link text-success" href="#" title="sign in">Sign in</a>
+                <div class="navbar-text text-success">/</div>
+                <a class="nav-link text-success" href="#" title="sign up">Sign up</a> -->
+            </div>
+        </div>
+    </nav>
+
+    <nav class="bottom-navbar navbar fixed-bottom navbar-expand navbar-light bg-white">
+        <div class="container justify-content-center">
+            Reach me out &nbsp<i class="fa fa-phone" aria-hidden="true"></i> +91 8968524482
+          
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="float-left text-center">
+                <img class="rounded-circle" height="70" src="assets/images/aayushi.jpg" alt="Aayushi Bansal">
+            </div>
+            <div class="col-7 ml-1">
+                <div class="row">
+                    <h6>Aayushi Bansal</h6>
+                   
+                </div>
+                <div class="row">
+                    <small class="text-secondary">Final Year Student Pursuing CSE From Chandigarh College Of Engineering And Technology.</small>
+                </div>
+                <div class="row">
+                    <small class="text-secondary">July 29, 2021 &#8226; 20 min read</small>
+                </div>
+            </div>
+        </div>
+
+        <article>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="font-weight-bold mt-4">Data Normalization in Machine Learning</h2>
+                    <p class="text-secondary h4">If you are a beginner to machine learning domain, you've undoubtedly puzzled a lot about 
+                        the meaning and impact of the phrase "feature normalisation." If you've read any Kaggle kernels, 
+                        you've almost certainly come across feature normalisation in the data preparation part. So, what 
+                        exactly is data normalisation, and why is it so important to data practitioners?.
+                    </p>
+                    <img class="img-fluid my-4" src="assets/images/ml.jpg">
+                    <h2>What is Normalization?</h2>
+                    <p><b>Typically, “normalising” a vector implies dividing by the vector's norm. It also frequently refers to rescaling 
+                        by the vector's minimum and range to make all of the elements lie between 0 and 1, bringing all of the values of 
+                        numeric columns in the dataset to a similar scale.</b><br><br>
+                        <center><iframe width="560" height="315" src="https://www.youtube.com/embed/kbKw05-ert0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+
+                   
+                </div>
+            </div>
+
+            <section class="mt-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="font-weight-bold">Lets Understand More About It !</h2>
+                        <!-- <p>Let’s begin with a PWA checklist. For this we’ll be using <a href="#" class="font-weight-bold">Lighthouse</a> — a
+                            tool for auditing <a href="#">an app for PWA features</a> and checking your app meets a respectable
+                            bar for web performance under emulated mobile conditions. Lighthouse is available as a <a href="#">Chrome extension</a>                            (I use this version of it most often) and a <a href="#">CLI</a>, both of which present a report
+                            that looks a little like this:</p> -->
+                            <p>Methods of Data Normalization –</p>
+                            <ul>
+                                <li>Min-Max Normalization</li>
+                                <li>Decimal Scaling</li>
+                                <li>z-Score Normalization(zero-mean Normalization)</li>
+                            </ul>
+                            <h2 class="font-weight-bold">1. Min-Max Normalization</h2><br>
+                            <p>The original data is transformed linearly in this data normalisation approach. 
+                                The minimum and maximum values from the data are retrieved, and each value is changed using the 
+                                formula below. This method rescales the range of the data to [0,1].
+                                Here is the formula <br>
+                            <img class="img-fluid my-4" src="assets/images/formula.PNG">
+                           
+        
+                            Here, Xmax and Xmin are the maximum and the minimum values of the feature respectively.<br>
+        
+                            When the value of X is the minimum value in the column, the numerator will be 0, and hence X’ is 0.<br>
+                            On the other hand, when the value of X is the maximum value in the column, the numerator is equal to the denominator and thus the value of X’ is 1.
+                            If the value of X is between the minimum and the maximum value, then the value of X’ is between 0 and 1.
+                            <br><br>For example, we might estimate the min and max observable values for a dataset as 30 and -10. Then we may normalise any value, such as 18.8, as follows:
+                           <br> y = (x – min) / (max – min)
+                           <br>y = (18.8 – (-10)) / (30 – (-10))
+                           <br>y = 28.8 / 40
+                           <br>y = 0.72
+                           <br>As can be seen, if an x value is supplied that is outside of the lowest and maximum values, the resultant value will not be between 0 and 1. 
+                            Prior to creating predictions, you may 
+                            look for these observations and either delete them from the dataset or limit them to the pre-defined maximum and lowest values.
+                            <br><br>The scikit-learn object <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html" style="color: blue;"">MinMaxScaler</a> may be used to normalise your dataset.
+                        <br><br>The following are some good practises for using the MinMaxScaler and other scaling techniques: 
+                        <ul>
+                            <li>Using given training data, fit the scaler. This indicates that during normalisation, 
+                        the training data will be utilised to estimate the lowest and maximum observable values. This is accomplished by invoking the fit() method. </li>
+                        <li>Use the scale on training data. This implies 
+                        you may train your model using the normalised data. This is accomplished by invoking the transform() function. </li>
+                        <li>In the future, apply the scale to data. This implies that in the future, 
+                        you can prepare new data on which to make forecasts.</li>
+                        </ul>
+                        
+                            <i><p>Let’s try it on the dataset of <a href ="https://github.com/aayushi1499/Data-Normalization-in-Machine-Learning/blob/main/test.csv" style="color: blue;">sonar</a>.</i></p>
+                  
+                            <img class="img-fluid my-4" width="900" height="1200" src="assets/images/max.PNG">
+                        <p>The distributions have been modified, and the minimum and maximum values for each variable are now a crisp 0.0 and 1.0, respectively.</p>
+                           
+        
+                        <h2 class="font-weight-bold">2. Decimal Scaling Normalization</h2><br>
+                        <p>Another approach for normalising in data mining is decimal scaling. It performs its job by converting an integer to a decimal point.
+                            To normalize the data by this technique, we divide each value of the data by the maximum absolute value of data. The data value, 
+                            v, of data is normalized to v' by using the formula below –<br>
+                      <center> <img class="img-fluid my-4" src="assets/images/decimal.PNG"><br></center>
+                       
+    
+                        <p>Here<br>
+                        v' is the new value as a result of the decimal scaling.<br>
+                        v denotes the attribute's respective value.<br>
+                        where j is the smallest integer such that max(|v'|)<1 <br><br>
+                            Example :
+                        <code class="text-dark d-block my-4">
+                            <i> Assume the input data is as follows: -10, 201, 301, -401, 501, 601, 701
+
+                            To normalise the aforementioned data, do the following steps: <br><br>
+                            <b>Step 1</b>: Maximum absolute value in supplied data(m): 701 <br>
+                            <b>Step 2</b>: Multiply the provided data by 1000 (i.e. j=3). <br><br>
+
+                            The normalised data is as follows: -0.01, 0.201, 0.301, -0.401, 0.501, 0.601, 0.701.<br></i>
+                        </code>
+                    </p>
+                    <h2 class="font-weight-bold">3. Z-Score Normalization(zero-mean Normalization)</h2><br>
+                    <p>The Z-Score value is used to determine how much a data point deviates from the mean. It calculates 
+                        the standard deviations below and above the mean. It varies between -3 and +3 standard deviations. 
+                        Z-score normalisation in data mining is beneficial for data analysis where it is necessary to compare 
+                        a value to a mean (average) value, such as test or survey findings. <br><br>
+                       Here is the formula below -<br>
+                    <center><img class="img-fluid my-4" src="assets/images/z.PNG" height="100" width="250"></center>
+                   <p>v’, v is the new and old of each entry in data respectively. σ<sub>A</sub> is the standard deviation and mean of A respectively.</p> 
+                        <h2 class="font-weight-bold">Why Should You Normalize Variables ?</h2>
+                            <p>Similarly, the aim of normalisation is to convert the values of numeric columns in the dataset to a similar scale 
+                                while preserving variations in value ranges. Every dataset does not need to be normalised for machine learning. 
+                                It is only necessary when the ranges of characteristics differ. <br><br>Consider a data collection with two characteristics:
+                                 age and income (x2). Where the age range is 0–100, and the income range is 0–100,000 and above. Income is around 
+                                 1,000 times greater than age. As a result, these two characteristics have very different ranges.
+                                 When we perform additional analysis, such as multivariate linear regression, the ascribed income will have a greater 
+                                 effect on the outcome due to its higher value. However, this does not always imply that it is more important as a predictor.
+                                  As a result, we normalise the data to bring all variables into the same range.</p>
+                           
+                    </div>
+
+                    <section class="mt-5">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class="font-weight-bold">Examples</h2>
+                                <p>
+                                    See the following for examples of how normalisation is used in machine learning.
+                                    <ul>
+                                    <li><a href="https://gallery.azure.ai/Experiment/1d18eae422f24185bc0844d5d8d6eec9" style="color: blue;">
+                                        Credit risk prediction</a>: In this sample, all numeric data except the class column, the credit risk score, is normalised. 
+The <b>tanh</b> transformation is used in this example to convert all numeric characteristics to values between 0 and 1.</li>
+                                          </ul>
+                                </p>
+                               
+                            </div>
+                        </div>
+                    </section>
+                
+            <section class="mt-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="font-weight-bold">Algorithms that apply normalization</h2>
+                    
+                        <p>
+                            Many machine learning methods demand that features be normalised so that they utilise a common scale.
+<ul>
+<li>Instances are regarded as vectors in multidimensional space in linear classification methods. Some objective functions do not 
+    perform effectively without normalisation since the range of values in raw data fluctuates greatly. For example, if one of the 
+    features has a wide range of values, this feature governs the distances between points.
+
+As a result, numerical characteristics should be normalised such that each feature contributes about proportionally to the final distance. 
+This can give considerable benefits in terms of speed and precision.</li><br>
+<li>By default, features are normalised before training when utilising the Logistic Regression and Averaged Perceptron algorithms.</li>
+</ul>               </p>
+                    </div>
+                </div>
+                <section class="mt-5">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <h2 class="font-weight-bold">
+                                The Big Question – Normalize or Standardize?
+                            </h2>
+                            
+                            <p class="mt-4">
+                                The age-old debate between normalisation and standardisation rages on among machine learning newbies. In this part, I'll expound on the solution.
+                                <ul>
+
+                                <li>Normalization is useful when you know your data's distribution does not follow a Gaussian distribution. This can be beneficial in algorithms such 
+                                as K-Nearest Neighbors and Neural Networks that do not presuppose any data distribution. </li>
+                                <li><a href="https://builtin.com/data-science/when-and-why-standardize-your-data" style="color: blue;">Standardization</a>, on the other hand, might be useful when 
+                                the data has a Gaussian distribution. However, this does not have to be the case. Furthermore, unlike normalisation, standardisation has no boundary range.</li>
+                                </ul><br>
+                              <p> However, whether you use normalisation or standardisation will ultimately rely on your situation and the machine learning method you are employing. 
+                                There is no hard and fast rule that says when you should normalise or standardise your data. You may always begin by fitting your model to raw, normalised, 
+                                and standardised data and comparing the performance to achieve the best results. <br><br><i>Fitting the scaler to the training data and then using it to transforming the testing data 
+                                is a smart technique. This prevents data leaking during the model testing procedure. In addition, scaling goal values is not always necessary.</i></p>
+                        
+    
+                            </p>
+                          <center> <iframe width="560" height="315" src="https://www.youtube.com/embed/mnKm3YP56PY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          </center> <br><br>
+
+                          <h2 class="font-weight-bold">When Feature Scaling matters</h2>
+                          <center><img class="img-fluid my-4" src="assets/images/diff.PNG" ></center>
+                          <p>Some machine learning models, such as K-Nearest-Neighbors, SVM, and Neural Network, are essentially based on the distance matrix, commonly known as the distance-based classifier. Feature scaling is 
+                          critical in such models, especially when the range of the features is wide. Otherwise, characteristics having a wide range will have a big effect on distance computation.<br>
+                        <br>
+                        Max-Min Normalisation, unlike k-nearest neighbours and artificial neural networks, generally allows us to modify data with various scales such that no single dimension dominates the statistics. Normalisation, 
+                        on the other hand, does not treat outliners particularly well. On the contrary, standardisation enables users to better handle anomalies and speed up convergence for particular computing techniques such as 
+                        gradient descent. As a result, we often favour standardisation over Min-Max Normalisation.<br><br>
+                        <b>Example: What algorithms need feature scaling</b><br>
+                        <center><img class="img-fluid my-4" src="assets/images/table.PNG" ></center><br>
+                        <p><i>Feature scaling is unimportant in algorithms that are not distance-based, such as Naive Bayes, Linear Discriminant Analysis, and Tree-Based models (gradient boosting, random forest, etc.).</i>
+                    
+                    </p>
+                   <p> The following example demonstrates the implications of standardisation. In it, we generate Gaussian data, extend one of the axes with a value to make them substantially incomparable, then plot the results. 
+                    In an absolute sense, this plainly illustrates the stretched blobs. The data is then standardised and plotted again. We can now observe that both the mean and the variance of the axes have shifted to (0,0) when the data is normalised!
+                    <h3 class="font-weight-bold"> Importing the libraries</h3><br>
+                    <center><img  src="assets/images/stand.PNG" width="800" height="100"  ></center><br>
+                    <center><img  src="assets/images/code.PNG" width="800" height="450"  ></center><br>
+                    <center><img  src="assets/images/graph.PNG" width="800" height="300"  ></center><br>
+               
+                </p>  
+            </div>
+                    </div>
+                </section>
+                <section class="mt-5">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <h2 class="font-weight-bold">
+                                Summary
+                            </h2>
+                            
+                            <p class="mt-4">
+                                Let’s quickly summarize the topics we covered.
+                                Because data originates from many sources, it is quite typical for each batch of data to have distinct characteristics. Thus, in data mining, normalisation is analogous to pre-processing and preparing the data for analysis.
+                             <br>   This blog discussed the importance of utilising feature scaling on your data, as well as how normalisation and standardisation affect the operation of machine learning algorithms in different ways.
+<br>
+                                Remember that there is no right or wrong answer when it comes to when to utilise normalisation over standardisation and vice versa. It all relies on the data you're working with and the technique you're employing.
+                               <br> <br>As a following step, I advise you to experiment with different feature scaling methods to see which works best – normalisation or standardisation? To preserve the continuity of this post, I propose that you utilise the 
+                                <a href="https://datahack.analyticsvidhya.com/contest/practice-problem-big-mart-sales-iii/?utm_source=blog&utm_medium=feature-scaling-machine-learning-normalization-standardization" style="color: blue;">BigMart Sales</a> data for that reason.
+                            </p>
+                           
+                        </div>
+                    </div>
+                </section>
+                <section class="mt-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="font-weight-bold">Further reading and resources</h2>
+                        <p>
+                            <ul>
+                                <li><a href="https://en.wikipedia.org/wiki/Feature_scaling" style="color: blue;">Feature scaling</a>: This article in Wikipedia explains the basic methods used for normalizing numeric data.</li>
+                                <li><a href=" https://pub.towardsai.net/how-when-and-why-should-you-normalize-standardize-rescale-your-data-3f083def38ff" style="color: blue;"> How, When, and Why Should You Normalize / Standardize / Rescale Your Data?</a></li>
+                                <li><a href=" https://arxiv.org/pdf/2009.12836.pdf" style="color: blue;">  Normalization Techniques in Training DNNs:
+                                    Methodology, Analysis and Application</a></li> 
+                                    <li><a href="https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/Feature" style="color: blue;"> Scaling for Machine Learning: Understanding the Difference Between Normalization vs. Standardization</a></li>
+                               
+                            </ul>
+                        </p>
+                       
+                    </div>
+                </div>
+            </section>
+           
+           
+            <section class="mt-2">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h4>I hope you found this article useful. Happy learning!</h4>
+                        <h4>Show your support</h4>
+                        <p class="text-secondary mb-4">Clapping shows how much you appreciated my blog.</p>
+                        <div class="float-left">
+                            <a class="icon-clap-hands rounded-circle p-3" href="#"></a>
+                            <a class="text-secondary ml-2" href="#"><small>2.6K</small></a>
+                        </div>
+                        <div class="float-right">
+                                <ul class="social-icons" >
+                                    <!-- single item -->
+                                  
+                                        <a href="https://github.com/aayushi1499" class="social-icon">
+                                            <i class="	fa fa-github"></i>
+                                        </a>
+                                  <br>
+                                 
+                                        <a href="https://www.linkedin.com/in/aayushi14/" class="social-icon">
+                                            <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    <br>
+                                        <a href="aayushi1499@gmail.com" class="social-icon">
+                                            <i class="fa fa-envelope"></i>
+                                        </a>
+                                    
+                                    
+                                </ul>
+                                
+                        </div>
+                    </div>
+                    <div class="col-lg-8 mx-auto">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row justify-content-center mb-4">
+                   
+                </div>
+            </section>
+            <section id="app">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="comment">
+                    <p v-for="items in item" v-text="items"></p>
+                      </div><!--End Comment-->
+                      </div><!--End col -->
+                      </div><!-- End row -->
+                  <div class="row">
+                    <div class="col-6">
+                  <textarea type="text" class="input" placeholder="Write a comment" v-model="newItem" @keyup.enter="addItem()" ></textarea>
+                      <button v-on:click="addItem()" class='primaryContained float-right' type="submit">Add Comment</button>
+                    </div><!-- End col -->
+                  </div><!--End Row -->
+                </div><!--End Container -->
+              </section><!-- end App -->
+        </article>
+    </main>
+    <footer class="bg-light">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-lg-4 mx-auto">
+                    <div class="card mt-md-3">
+                        <a class="card-img-top card-img-top--1" href="https://visualstudiomagazine.com/articles/2020/08/04/ml-data-prep-normalization.aspx"></a>
+                        <div class="card-body">
+                            <h6 class="card-subtitle text-muted mb-2">Featured</h6>
+                            <h4 class="card-title font-weight-bold">Data Prep for Machine Learning: Normalization</h4>
+                            <div class="row mt-4">
+                                <div class="col-1">
+                                    <img class="rounded-circle" height="40" src="assets/images/avatar2.png" alt="Addy Osmani">
+                                </div>
+                                <div class="col-5 ml-3">
+                                    <h6 class="my-0">James McCaffrey</h6>
+                                    <small class="text-muted">10 min read</small>
+                                </div>
+                                <div class="col-5 text-right">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><a class="icon-clap-hands icon-clap-hands--small" href="#"></a></li>
+                                        <li class="list-inline-item"><small class="text-muted">1.1K</small></li>
+                                        <li class="list-inline-item"><a class="icon-bookmark text-muted" href="#"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mx-auto">
+                    <div class="card mt-md-3">
+                        <a class="card-img-top card-img-top--2" href="https://towardsdatascience.com/data-normalization-with-pandas-and-scikit-learn-7c1cc6ed6475"></a>
+                        <div class="card-body">
+                            <h6 class="card-subtitle text-muted mb-2">Related reads</h6>
+                            <h4 class="card-title font-weight-bold">Data normalization with Pandas and Scikit-Learn</h4>
+                            <div class="row mt-4">
+                                <div class="col-1">
+                                    <img class="rounded-circle" height="40" src="assets/images/amanda.PNG" alt="Amanda Iglesias Moreno">
+                                </div>
+                                <div class="col-5 ml-3">
+                                    <h6 class="my-0">Amanda Iglesias Moreno</h6>
+                                    <small class="text-muted">23 min read</small>
+                                </div>
+                                <div class="col-5 text-right">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><a class="icon-clap-hands icon-clap-hands--small" href="#"></a></li>
+                                        <li class="list-inline-item"><small class="text-muted">768</small></li>
+                                        <li class="list-inline-item"><a class="icon-bookmark text-muted" href="#"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mx-auto">
+                    <div class="card mt-md-3">
+                        <a class="card-img-top card-img-top--3" href="https://machinelearningmastery.com/standardscaler-and-minmaxscaler-transforms-in-python/" ></a>
+                        <div class="card-body">
+                            <h6 class="card-subtitle text-muted mb-2">More on Normalization</h6>
+                            <h4 class="card-title font-weight-bold">How to Use StandardScaler and MinMaxScaler Transforms in Python</h4>
+                            <div class="row mt-4">
+                                <div class="col-1">
+                                    <img class="rounded-circle" height="40" src="assets/images/jason.PNG" alt=" Jason Brownlee">
+                                </div>
+                                <div class="col-5 ml-3">
+                                    <h6 class="my-0"> Jason Brownlee</h6>
+                                    <small class="text-muted">15 min read</small>
+                                </div>
+                                <div class="col-5 text-right">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><a class="icon-clap-hands icon-clap-hands--small" href="#"></a></li>
+                                        <li class="list-inline-item"><small class="text-muted">3.9K</small></li>
+                                        <li class="list-inline-item"><a class="icon-bookmark text-muted" href="#"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-lg-8 mx-auto mt-5">
+                    <h6><b>Responses</b></h6>
+                    <div class="bg-white border rounded py-5 px-4 mt-3">
+                        <a class="text-muted" href="#"><span class="icon-comment"></span> Write a response...</a>
+                    </div>
+
+                    <a class="d-block border rounded p-4 mt-5 bg-white text-center text-success" href="#">Show all responses</a>
+                </div> -->
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
